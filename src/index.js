@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+function Salutation ({fname,lname}) {
+  return <h1>Hello {fname} {lname}</h1>;
+}
+
+function SaluteAll() {
+  let info = [
+    ['Abhishek', 'Maira'],
+    ['Anuj', 'Garg'],
+    ['Katrina', 'Kaif'],
+  ]
+
+  return (
+  <div>
+    {info.map((item) => {
+      return < Salutation fname={item[0]} lname={item[1]}/>;
+    })}
+  </div>
+  );
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <SaluteAll />,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
